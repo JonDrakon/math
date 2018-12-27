@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Training brain</title>
+	<style>
+	table {
+		margin: 0 auto;
+		padding: 400px 0;
+	}
+	input {
+		height: 20px;
+		font-size: 55px;
+		width:80px;
+		padding: 15px;
+		color:white;
+		background:gray;
+		border:0;
+	}
+	td {
+		background:gray;
+		width: 40px;
+		color:white;
+		
+	}
+	#knop {
+		background:white;
+	}
+	#res {
+		padding:10px 0 10px 10px ;
+		color:black;
+		margin: 0 auto;
+		font-size: 25px;
+	}
+	#one, #two, #znak, #rv, #three {
+		text-align:center;
+		font-size: 55px;
+		width:100px;
+		margin:3px;
+	}
+#kn {
+	font-size:1.9em;
+}
+</style>
+</head>
+<body>
+	<h1>Training brain</h1>
+	<table>
+	<tr>
+		<td id="one" border="1"></td>
+		<td id="znak"></td>
+		<td id="two" border="1"></td>
+		<td id="rv">=</td>
+		<td><input type="text" id="three"></td>
+		<tr><td id="knop"><button onclick="proverka()" id="kn">Check</button></td></tr>
+	</tr>
+	<tr><td id="res" colspan="4"></td></tr>
+	<tr><td id="seconds"></td></tr>
+	</table>
+	
+	</div>
+	
+<script>
+	window.onload = function() {
+	var cifri = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+	var znaki = ["+", "-", "*", "/"];
+	rand = cifri[Math.floor(Math.random() * cifri.length)];
+	rand2 = cifri[Math.floor(Math.random() * cifri.length)];
+	rand3 = znaki[Math.floor(Math.random() * znaki.length)];
+	document.getElementById("one").innerHTML = rand;
+	document.getElementById("two").innerHTML = rand2;
+	document.getElementById("znak").innerHTML = rand3;
+	if (rand3 == "+") ravno = rand+rand2;
+	if (rand3 == "-") ravno = rand-rand2;
+	if (rand3 == "*") ravno = rand*rand2;
+	if (rand3 == "/") ravno = rand/rand2;
+};
+</script>
+<script>
+	function proverka(){
+	if (ravno == document.getElementById("three").value) document.getElementById("res").innerHTML = "Right!";
+	else 
+		document.getElementById("res").innerHTML = "Wrong! Correct answer" + " " + ravno;
+	//alert("Вы ошиблись! Правильный ответ" + " " + ravno);
+	setTimeout("window.location.reload()", 3000)
+ 
+};
+</script>
+
+</body>
+</html>
